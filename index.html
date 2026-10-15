@@ -126,7 +126,7 @@ h1,h2,.ref,.mut{text-shadow:0 0 10px rgba(255,255,255,.9),0 0 3px rgba(255,255,2
 .sl{padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
 .tl{padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px))}
 .qc{transition:none}
-.sl.act .qc{animation:qin .9s cubic-bezier(.2,1.4,.4,1) both;animation-delay:calc(var(--k)*2.4s + .8s)}
+.sl.act .qc{animation:qin .45s cubic-bezier(.2,1.4,.4,1) both;animation-delay:calc(var(--k)*.3s + .15s)}
 @keyframes qin{from{opacity:0;transform:translateY(40px) scale(.85) rotate(-2deg)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.sl.act .qc{animation-duration:.01s;animation-delay:calc(var(--k)*.3s)}}
 @media(max-width:800px) and (orientation:landscape){.two{grid-template-columns:1.1fr 1fr}.four{grid-template-columns:repeat(4,1fr)}}
@@ -153,6 +153,8 @@ h1{font-size:28px;line-height:1.4}h2{font-size:20px}.ref{font-size:16px}
 @media(max-width:700px){.s span{display:none}.s.cur span{display:block}}
 @media(prefers-reduced-motion:reduce){.fr,.sl,.fm,.sk,#sun,#gw,.pg,.cls{transition-duration:.01s}.gr,.pg,.cl{animation:none}}
 @media(max-width:600px){.steps{gap:6px;flex-wrap:nowrap}.chip{font-size:13px;padding:0 10px;min-height:34px;white-space:nowrap}}
+.vs{width:100%;background:var(--card);border-radius:14px;padding:8px 18px;border-inline-start:6px solid var(--gold);display:grid;gap:0;text-align:center}.vs b{font-size:clamp(18px,3vw,24px);line-height:1.7}.vs small{color:var(--gold);font-weight:800;font-size:15px}
+@media(max-height:520px){.vs{padding:3px 12px}.vs b{font-size:14px;line-height:1.4}.vs small{font-size:12px}}
 </style>
 </head>
 <body>
@@ -191,7 +193,7 @@ const QS=[
 {q:'إيه هو الشوك في حياتنا؟ اديني مثال من عندك.',c:'#5c7a3a',e:'🌵',i:'p3'},
 {q:'إزاي أبقى الأرض الجيدة؟ وإيه معنى ٣٠ و٦٠ و١٠٠؟',c:'#2f7f3a',e:'🌾',i:'p4'}];
 const QT=['الزارع والبذرة','الطريق','الحجارة','الشوك','الأرض الجيدة'];
-const QZ=`<div class="in c"><h2>اختبر نفسك</h2><div class="qg" id="qg">${QS.map((q,k)=>`<div class="qc" style="--qc:${q.c};--k:${k}"><div class="qi">${q.i=='xj'?`<img class="xq" src="${IM.xj}" alt="">`:`<img src="${IM[q.i]}" alt="">`}<span class="qn">${(k+1).toLocaleString('ar-EG')}</span><span class="qe">${q.e}</span></div><div class="qt2"><small>${QT[k]}</small><b>${q.q}</b>${k==4?'<div class="q3"><i>٣٠</i><i>٦٠</i><i>١٠٠</i></div>':''}</div></div>`).join('')}</div></div>`;
+const QZ=`<div class="in c"><h2>اختبر نفسك</h2><div class="qg" id="qg">${QS.map((q,k)=>`<div class="qc" style="--qc:${q.c};--k:${k}"><div class="qi">${q.i=='xj'?`<img class="xq" src="${IM.xj}" alt="">`:`<img src="${IM[q.i]}" alt="">`}<span class="qn">${(k+1).toLocaleString('ar-EG')}</span><span class="qe">${q.e}</span></div><div class="qt2"><small>${QT[k]}</small><b>${q.q}</b>${k==4?'<div class="q3"><i>٣٠</i><i>٦٠</i><i>١٠٠</i></div>':''}</div></div>`).join('')}</div><div class="vs"><b>كُونُوا عَامِلِينَ بِالْكَلِمَةِ، لاَ سَامِعِينَ فَقَطْ</b><small>يعقوب ١: ٢٢</small></div></div>`;
 function qrev(on){document.querySelectorAll('.sl')[6].classList.toggle('act',on)}
 const H=[`<div class="in c"><div class="ref">متى ١٣</div><h1>خَرَجَ الزَّارِعُ لِيَزْرَعَ</h1><div class="scn" id="scn"><div class="gr"></div><div class="fw" id="fw"><i class="shd"></i><span class="spr" id="f0"></span></div></div><button class="btn" onclick="go(1)">يلا نمشي معاه</button></div>`,
 ...SO.map((s,i)=>`<div class="in"><div class="steps">${['١. الأرض','٢. اللي حصل للبذرة','٣. الحكاية'].map((t,j)=>`<button class="chip" id="c${i}${j}" onclick="pane(${i},${j})">${t}</button>`).join('')}</div>
