@@ -9,7 +9,8 @@
 :root{--bg:#f1f6ea;--ink:#1d2b22;--mut:#3f4f44;--card:#fff;--g:#2f6b3a;--gold:#a86f0c;--ln:#d5e0c8;color-scheme:light}
 
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;overflow:hidden}
+html,body{height:100%;margin:0;overflow:hidden;overflow:clip;overscroll-behavior:none;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+#deck{position:fixed;inset:0;overflow:hidden;overflow:clip;contain:paint}
 body{background:var(--bg);color:var(--ink);font-family:'Cairo',Tahoma,sans-serif;line-height:1.7;font-size:18px}
 .sl{position:absolute;inset:0;padding:calc(54px + env(safe-area-inset-top,0px)) 20px 142px;overflow-y:auto;transition:transform .75s cubic-bezier(.6,0,.2,1)}
 .in{max-width:1100px;margin:0 auto;min-height:100%;display:grid;align-content:center;gap:16px}
@@ -78,7 +79,7 @@ button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .s span{position:absolute;top:100%;left:50%;transform:translateX(-50%);font-size:12px;white-space:nowrap;color:var(--mut);margin-top:2px}
 .s.done{background:var(--gold);border-color:var(--gold)}.s.cur{border-color:var(--gold);background:var(--bg);box-shadow:0 0 0 4px rgba(200,137,26,.3)}.s.cur span{color:var(--ink);font-weight:800}
 .fm{position:absolute;bottom:34px;right:0;transform:translateX(50%);transition:right 1.4s ease-in-out;pointer-events:none;--h:64px}
-#skyw{position:fixed;inset:0;overflow:hidden}.sk{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease-in-out}
+#skyw{position:fixed;inset:0;overflow:hidden;contain:paint}.sk{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease-in-out}
 #sun{position:absolute;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle,#fffbe0 28%,#ffe27a 55%,rgba(255,210,90,0) 72%);transform:translate(50%,-50%);transition:right 1.8s ease-in-out,top 1.8s ease-in-out,filter 1.8s,width 1.8s,height 1.8s,opacity 1.8s}
 @property --fld{syntax:'<color>';inherits:true;initial-value:#8fb85a}
 @property --rdc{syntax:'<color>';inherits:true;initial-value:#b99a6b}
@@ -151,6 +152,7 @@ h1{font-size:28px;line-height:1.4}h2{font-size:20px}.ref{font-size:16px}
 }
 @media(max-width:700px){.s span{display:none}.s.cur span{display:block}}
 @media(prefers-reduced-motion:reduce){.fr,.sl,.fm,.sk,#sun,#gw,.pg,.cls{transition-duration:.01s}.gr,.pg,.cl{animation:none}}
+@media(max-width:600px){.steps{gap:6px;flex-wrap:nowrap}.chip{font-size:13px;padding:0 10px;min-height:34px;white-space:nowrap}}
 </style>
 </head>
 <body>
